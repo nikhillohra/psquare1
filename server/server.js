@@ -29,7 +29,7 @@ connectDB();
 // Routes
 app.use('/api/auth', authRoutes);
 app.use("/uploads", express.static("uploads")); 
-app.use("/api/form", candidateForm);
+// app.use("/api/form", candidateForm);
 // Commenting out unused routes
 // app.use('/api/employees', employeeRoutes);
 // app.use('/api/departments', departmentRoutes);

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import emptyCheckbox from "/empty.svg"; 
+import checkedCheckbox from "/check.svg";
 
 export const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -70,6 +72,8 @@ export const Modal = ({ isOpen, onClose }) => {
     }
   };
 
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="rounded-xl bg-white shadow-lg w-[70%]">
@@ -123,17 +127,17 @@ export const Modal = ({ isOpen, onClose }) => {
 </div>
 
      {/* Declaration Checkbox */}
-     <div className="px-6 flex items-center">
-        <input type="checkbox" id="declaration" className="mr-2" />
-        <label htmlFor="declaration" className="text-gray-500 text-sm">
-          I hereby declare that the above information is true to the best of my knowledge and belief.
-        </label>
-      </div>
+     <div className=" flex items-center cursor-pointer" onClick={() => setIsChecked(!isChecked)}>
+      <img src={isChecked ? checkedCheckbox : emptyCheckbox} alt="Checkbox" className="w-6 h-6 mr-2" />
+      <span className="text-gray-500 text-xs text-nowrap">
+        I hereby declare that the above information is true to the best of my knowledge and belief.
+      </span>
+    </div>
 
-          {/* Submit Button */}
+          {/* Save Button */}
           <div className="col-span-2 text-center p-4">
-            <button type="submit" className="bg-[#4D007D] text-white px-4 py-2 rounded">
-              Submit
+            <button type="submit" className="bg-[#4D007D] text-white px-4 py-2 rounded-3xl">
+              Save
             </button>
           </div>
         </form>

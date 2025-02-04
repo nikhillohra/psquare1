@@ -6,6 +6,7 @@ import { EmployeesComponent } from "../components/EmployeesComponent";
 import { OthersComponent } from "../components/OthersComponent";
 import { Modal } from "../components/CandidateModal.jsx";
 import { candidates } from "../constants/index.js";
+import ProfileDropdown from "../components/ProfileDropdown.jsx";
 
 const Dashboard = () => {
   const [selectedSection, setSelectedSection] = useState("Candidates");
@@ -58,9 +59,15 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div className="flex-1 p-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col  ">
+         {/* Notification & Profile Dropdown */}
+          <div className="flex z-10 justify-end gap-4">
+            <img src="/msg.svg" alt="message" />
+            <img src="/notification.svg" alt="message" />
+            <ProfileDropdown/>
+          </div>
           <h1 className="text-2xl">{selectedSection}</h1>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-end space-x-2">
             <Input placeholder="Search" className="w-64" />
             {selectedSection === "Candidates" && (
               <button
